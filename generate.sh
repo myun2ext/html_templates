@@ -1,5 +1,5 @@
 #!/bin/sh
-cat root.html | awk '
-/<!--%%.*%%-->/ { system("cat " $2 ".html") 1>/dev/null }
+cat $1.html | awk '
+/<!--%%.*%%-->/ { system("./generate.sh " $2) 1>/dev/null }
 !/<!--%%.*%%-->/ { print }
 '
